@@ -220,7 +220,7 @@ Modell exakt in CP-SAT. *Fair* minimiert zuerst die größte mittlere Verspätun
 
 **Fairness.** Gemessen wird die Spreizung der mittleren Verspätung zwischen den Operatoren und der Jain-Index. Der **Preis der Fairness** ist die Mehrverspätung der fairen Lösung gegenüber dem Optimum.
 
-**Grenzen.** Synthetische Strecke, nur eine Richtung je Zug über die ganze Länge, Wunschabfahrten fest, unbegrenzte Ausweichgleise, gleiche Verspätungskosten je Minute für alle Operatoren, keine Fahrzeitreserven. Die Zahlen belegen
+**Grenzen.** Synthetische Strecke, nur eine Richtung je Zug über die ganze Länge, Wunschabfahrten fest, unbegrenzte Ausweichgleise, gleiche Verspätungskosten je Minute für alle Operatoren, keine Fahrzeitreserven (die verteilt die Demo [Fahrzeitreserve](https://sebastianhanisch-fahrzeitreserve-demo.streamlit.app/)). Die Zahlen belegen
 Größenordnungen auf diesen Netzen, keine Trassenpreise oder Rechtslage.
 """
     )

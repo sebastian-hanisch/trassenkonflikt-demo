@@ -10,6 +10,8 @@ Züge von drei Bahnunternehmen wollen im selben Zeitfenster über eine eingleisi
 vergleicht **Regeln der Trassenvergabe** (Erstanmelder, Vorrang), eine **verbesserte Reihenfolge** und die **exakte Lösung** (OR-Tools CP-SAT) und fragt, **was die Regel kostet und was Fairness
 zwischen den Unternehmen kostet**.
 
+Weitere Bausteine der Reihe: [Taktfahrplan](https://github.com/sebastian-hanisch/taktfahrplan-demo), [Fahrzeitreserve](https://github.com/sebastian-hanisch/fahrzeitreserve-demo), [Energieoptimale Fahrweise](https://github.com/sebastian-hanisch/energiefahrweise-demo), [Crew Pairing](https://github.com/sebastian-hanisch/crew-pairing-demo), [Ablaufberg](https://github.com/sebastian-hanisch/ablaufberg-demo). Die ganze Reihe mit Querverweisen auf verwandte Modelle steht auf der Seite [Schienenverkehr optimieren](https://sebastianhanisch.net/schienenverkehr-optimierung.html).
+
 ## Kernfrage
 
 Wie viel Gesamtverspätung kostet es, die Trassen nach dem Erstanmelder- oder einem Vorrangprinzip zu vergeben statt nach dem Optimum, und was kostet es, die Verspätung gerecht auf die Unternehmen
@@ -64,7 +66,7 @@ bewiesener fairer Lösung.
 
 - Die Regeln vergeben die Trasse **Zug für Zug und ganz**; ein Fahrdienstleiter kann Züge in einzelnen Abschnitten verzahnen. Die Lücke des Erstanmelder-Prinzips ist deshalb eine Obergrenze dessen, was
   Regeln kosten, die verbesserte Reihenfolge eine Untergrenze.
-- Synthetische Strecke: ein Zug fährt immer die ganze Strecke, Wunschabfahrten sind fest, die Ausweichgleise unbegrenzt, jede Verspätungsminute zählt für alle Unternehmen gleich, keine Fahrzeitreserven,
+- Synthetische Strecke: ein Zug fährt immer die ganze Strecke, Wunschabfahrten sind fest, die Ausweichgleise unbegrenzt, jede Verspätungsminute zählt für alle Unternehmen gleich, keine Fahrzeitreserven (die verteilt die [Fahrzeitreserve](https://github.com/sebastian-hanisch/fahrzeitreserve-demo)),
   keine Trassenpreise und keine Rechtslage. Die Zahlen belegen Größenordnungen auf diesen Netzen.
 - Fairness wird nur als Min-Max der **mittleren** Verspätung je Unternehmen gemessen; andere Gerechtigkeitsmaße (Anteil verspäteter Züge, längste Verspätung) wären ein Ausbau.
 - Die Spreizung der **optimalen** Lösung hängt davon ab, welche der gleich guten Lösungen CP-SAT zurückgibt (mehrere Worker); Gesamtverspätung und Optimum sind eindeutig, die Spreizung dieser einen Lösung nicht.
@@ -96,7 +98,7 @@ python -m pytest tests -q
 
 ## Bewusst nicht umgesetzt
 
-Teilstrecken-Fahrten und Verkehrshalte, Fahrzeitreserven, Trassenpreise, weitere Fairnessmaße, Mehrgleisstrecken und Überholbahnhöfe mit begrenzter Kapazität, Störungsmanagement, Fahrzeugumlauf und Rangieren.
+Teilstrecken-Fahrten und Verkehrshalte, Fahrzeitreserven (Baustein [Fahrzeitreserve](https://github.com/sebastian-hanisch/fahrzeitreserve-demo)), Trassenpreise, weitere Fairnessmaße, Mehrgleisstrecken und Überholbahnhöfe mit begrenzter Kapazität, Störungsmanagement, Fahrzeugumlauf und Rangieren (die Zugbildung zeigt der [Ablaufberg](https://github.com/sebastian-hanisch/ablaufberg-demo)).
 
 ## Lokal ausführen
 
