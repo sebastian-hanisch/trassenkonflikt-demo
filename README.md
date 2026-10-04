@@ -1,5 +1,7 @@
 # Trassenkonflikt: Wer bekommt die Strecke? (Streamlit-Demo)
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-streckenkonflikt-demo.streamlit.app/)**
+
 Interaktive **Fall-Demo** zur Trassenvergabe auf einer eingleisigen Strecke im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) (Operations Research und Machine Learning).
 **Dritter Baustein der Reihe Bahn/Schienenverkehr** nach dem [Taktfahrplan](https://github.com/sebastian-hanisch/taktfahrplan-demo) (dort stand die Mindest-Zugfolge nur als Vorgriff) und dem
 [Crew Pairing](https://github.com/sebastian-hanisch/crew-pairing-demo).
