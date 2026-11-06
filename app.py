@@ -42,6 +42,17 @@ Stationen. Wer fährt wann? Die Demo vergleicht **Regeln der Trassenvergabe** (d
 (OR-Tools CP-SAT) und beantwortet zwei Fragen: **Was kostet die Regel gegenüber dem Optimum?** und **Was kostet Fairness zwischen den Unternehmen?**
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/trassenkonflikt-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Auf einer eingleisigen Strecke passt in jeden Abschnitt immer nur ein Zug, und Begegnen oder Überholen geht nur in den Stationen. Züge dreier Bahnunternehmen wollen im selben Zeitfenster hindurch. Die Demo vergleicht Regeln der Trassenvergabe, nämlich Erstanmelder und Vorrang, eine verbesserte Reihenfolge und das beste mögliche Ergebnis, das ein Rechenprogramm findet. Als Verspätung zählt die Zeit, die ein Zug länger braucht als bei ungestörter Fahrt. Die Demo zeigt, wie viel mehr Gesamtverspätung die Regeln gegenüber dem besten Ergebnis kosten und was es kostet, die mittlere Verspätung gleichmäßig auf die Unternehmen zu verteilen. Der Bildfahrplan zeigt, welcher Zug wann wartet.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/trassenkonflikt-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 st.caption(
     "Dritter Baustein der Reihe Bahn/Schienenverkehr nach [Taktfahrplan](https://sebastianhanisch-taktfahrplan-demo.streamlit.app/) (dort stand die Mindest-Zugfolge nur als Vorgriff) und "
     "[Crew Pairing](https://sebastianhanisch-crew-pairing-demo.streamlit.app/). Strukturell ein Job-Shop mit Routen wie in "
@@ -226,6 +237,26 @@ Größenordnungen auf diesen Netzen, keine Trassenpreise oder Rechtslage.
     )
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/trassenkonflikt-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind Züge mit Route, Fahrzeit je Abschnitt und Wunschabfahrt sowie eine Räumzeit nach jedem Abschnitt. Gesucht ist für jeden Zug die Einfahrtszeit in jeden Abschnitt, sodass sich auf keinem Abschnitt zwei Belegungen überschneiden und die Gesamtverspätung klein bleibt, bei Bedarf unter einer Grenze für die mittlere Verspätung je Unternehmen.
+
+| Symbol | Bedeutung |
+|---|---|
+| $i$, $j$ | Zug bzw. Abschnitt der Strecke |
+| $p_i$ | Fahrzeit des Zuges $i$ je Abschnitt |
+| $r_i$ | Wunschabfahrt des Zuges $i$ am Start |
+| $c$ | Räumzeit: Pause nach einem Zug, bevor ein anderer in den Abschnitt einfahren darf |
+| $s_{ij}$ | Einfahrtszeit des Zuges $i$ in den Abschnitt $j$ |
+| $d_i$ | Verspätung des Zuges $i$ |
+| $o$, $n_o$ | ein Bahnunternehmen bzw. die Zahl seiner Züge |
+| $m$ | Obergrenze für die mittlere Verspätung der Unternehmen |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/trassenkonflikt-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Modell.** Zug $i$ hat die Route $j_1, \dots, j_S$ (Abschnitte in Fahrtrichtung), Fahrzeit $p_i$ je Abschnitt, Wunschabfahrt $r_i$. Variablen $s_{ij}$ = Einfahrt in Abschnitt $j$:
