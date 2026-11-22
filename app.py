@@ -179,7 +179,7 @@ with st.expander("🔧 Wie wir das erreichen – vollständiger Methodenvergleic
     with tabs[0]:
         st.markdown(
             "**Serienplanung:** Die Züge werden in einer Reihenfolge nacheinander eingeplant; jeder nimmt auf jedem Abschnitt die früheste freie Lage (mit Räumzeit), in Stationen darf er warten. "
-            "*Erstanmelder:* Reihenfolge nach Wunschabfahrt. *Vorrang:* erst alle Züge des bevorzugten Operators. *Reihenfolge verbessert:* Lokalsuche, die einzelne Züge in der Reihenfolge "
+            "*Erstanmelder:* Reihenfolge nach Wunschabfahrt. *Vorrang:* erst alle Züge des bevorzugten Operators. *Reihenfolge verbessert:* Lokalsuche (englisch Local Search), die einzelne Züge in der Reihenfolge "
             "verschiebt, solange die Gesamtverspätung sinkt. Alle drei sind schnell und nachvollziehbar, vergeben die Trasse aber Zug für Zug und ganz; das Optimum darf Züge abschnittsweise verzahnen (ein Zug wartet in einer Station, bis ein Gegenzug vorbei ist, obwohl er schon weiterfahren könnte). Auf manchen Netzen ist das Optimum deshalb besser als jede Zug-Reihenfolge."
         )
         st.dataframe(pd.DataFrame([{"Zug": t.idx + 1, "Operator": C.op_name(t.op), "Richtung": "aufwärts" if t.up else "abwärts", "Klasse": "schnell" if t.fast else "langsam",
@@ -229,7 +229,7 @@ Wunschabfahrt minus ungestörte Fahrzeit.
 **Verfahren.** *Erstanmelder* und *Vorrang* sind Regeln der Trassenvergabe in Form einer Serienplanung. *Reihenfolge verbessert* verschiebt Züge in der Reihenfolge, solange die Gesamtverspätung sinkt. *Optimum* löst das
 Modell exakt in CP-SAT. *Fair* minimiert zuerst die größte mittlere Verspätung eines Operators und dann die Gesamtverspätung.
 
-**Fairness.** Gemessen wird die Spreizung der mittleren Verspätung zwischen den Operatoren und der Jain-Index. Der **Preis der Fairness** ist die Mehrverspätung der fairen Lösung gegenüber dem Optimum.
+**Fairness.** Gemessen wird die Spreizung der mittleren Verspätung zwischen den Operatoren und der Jain-Index. Der **Preis der Fairness** (englisch Price of Fairness) ist die Mehrverspätung der fairen Lösung gegenüber dem Optimum.
 
 **Grenzen.** Synthetische Strecke, nur eine Richtung je Zug über die ganze Länge, Wunschabfahrten fest, unbegrenzte Ausweichgleise, gleiche Verspätungskosten je Minute für alle Operatoren, keine Fahrzeitreserven (die verteilt die Demo [Fahrzeitreserve](https://sebastianhanisch-fahrzeitreserve-demo.streamlit.app/)). Die Zahlen belegen
 Größenordnungen auf diesen Netzen, keine Trassenpreise oder Rechtslage.
